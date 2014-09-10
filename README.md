@@ -17,6 +17,8 @@ LexikPayboxBundle silently does :
 You only need to provide parameters of your transaction, customize the response page
 and wait for the event triggered on ipn response.
 
+Service supported: Paybox Direct (web payment and subscription cancellation)
+
 Requirements
 ------------
 
