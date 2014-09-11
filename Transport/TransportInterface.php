@@ -2,7 +2,7 @@
 
 namespace Lexik\Bundle\PayboxBundle\Transport;
 
-use Lexik\Bundle\PayboxBundle\Paybox\System\Cancellation\Request;
+use Lexik\Bundle\PayboxBundle\Paybox\RequestInterface;
 
 /**
  * Transport\TransportInterface class.
@@ -14,9 +14,9 @@ interface TransportInterface
     /**
      * Prepare and send a message.
      *
-     * @param Request $request Request instance
+     * @param RequestInterface $request RequestInterface instance
      *
      * @return String The Paybox response
      */
-    public function call(Request $request);
+    public function call(RequestInterface $request);
 }

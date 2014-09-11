@@ -2,7 +2,7 @@
 
 namespace Lexik\Bundle\PayboxBundle\Transport;
 
-use Lexik\Bundle\PayboxBundle\Paybox\System\Cancellation\Request;
+use Lexik\Bundle\PayboxBundle\Paybox\RequestInterface;
 
 /**
  * Transport\CurlTransport class.
@@ -29,13 +29,13 @@ class CurlTransport extends AbstractTransport implements TransportInterface
     /**
      * {@inheritDoc}
      *
-     * @param PayboxRequest $request Request instance
+     * @param RequestInterface $request RequestInterface instance
      *
      * @throws RuntimeException On cURL error
      *
      * @return string $response The html of the temporary form
      */
-    public function call(Request $request)
+    public function call(RequestInterface $request)
     {
         $this->checkEndpoint();
 

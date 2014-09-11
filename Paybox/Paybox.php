@@ -68,6 +68,7 @@ abstract class Paybox
             'site'                => $parameters['site'],
             'rank'                => $parameters['rank'],
             'login'               => $parameters['login'],
+            'password'            => $parameters['password'],
             'hmac_key'            => $parameters['hmac']['key'],
             'hmac_algorithm'      => $parameters['hmac']['algorithm'],
             'hmac_signature_name' => $parameters['hmac']['signature_name'],
@@ -121,13 +122,6 @@ abstract class Paybox
     {
         return (isset($this->parameters[strtoupper($name)])) ? $this->parameters[strtoupper($name)] : null;
     }
-
-    /**
-     * Returns all parameters set for a payment.
-     *
-     * @return array
-     */
-    abstract public function getParameters();
 
     /**
      * Returns all parameters as a querystring.

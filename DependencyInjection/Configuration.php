@@ -60,9 +60,36 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
 
+                ->arrayNode('direct')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->arrayNode('servers')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->arrayNode('prod')
+                                    ->defaultValue(array(
+                                        'ppps.paybox.com', // primary
+                                        'ppps1.paybox.com', // secondary
+                                    ))
+                                    ->prototype('scalar')->end()
+                                ->end()
+
+                                ->arrayNode('preprod')
+                                    ->defaultValue(array(
+                                        'preprod-ppps.paybox.com',
+                                    ))
+                                    ->prototype('scalar')->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                        ->scalarNode('path')->defaultValue('/PPPS.php')->end()
+                    ->end()
+                ->end()
+
                 ->arrayNode('parameters')
                     ->isRequired()
                     ->children()
+                        ->scalarNode('platform')->defaultValue('preprod')->end()
                         ->arrayNode('currencies')
                             ->defaultValue(array(
                                 '036', // AUD
@@ -78,6 +105,7 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('site')->isRequired()->end()
                         ->scalarNode('rank')->isRequired()->end()
                         ->scalarNode('login')->isRequired()->end()
+                        ->scalarNode('password')->end()
                         ->arrayNode('hmac')
                             ->isRequired()
                             ->children()

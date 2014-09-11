@@ -3,6 +3,7 @@
 namespace Lexik\Bundle\PayboxBundle\Paybox\System\Cancellation;
 
 use Lexik\Bundle\PayboxBundle\Paybox\Paybox;
+use Lexik\Bundle\PayboxBundle\Paybox\RequestInterface;
 use Lexik\Bundle\PayboxBundle\Paybox\System\Cancellation\ParameterResolver;
 use Lexik\Bundle\PayboxBundle\Transport\TransportInterface;
 
@@ -11,7 +12,7 @@ use Lexik\Bundle\PayboxBundle\Transport\TransportInterface;
  *
  * @author Fabien Pomerol <fabien.pomerol@gmail.com>
  */
-class Request extends Paybox
+class Request extends Paybox implements RequestInterface
 {
     /**
      * @var TransportInterface This is how
