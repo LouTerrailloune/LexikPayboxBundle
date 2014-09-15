@@ -64,6 +64,7 @@ abstract class Paybox
     protected function initGlobals(array $parameters)
     {
         $this->globals = array(
+            'platform'            => $parameters['platform'],
             'currencies'          => $parameters['currencies'],
             'site'                => $parameters['site'],
             'rank'                => $parameters['rank'],
@@ -172,17 +173,17 @@ abstract class Paybox
     /**
      * Returns the url of an available server.
      *
-     * @param  string $env
-     *
      * @return array
      *
      * @throws InvalidArgumentException If the specified environment is not valid (dev/prod).
      * @throws RuntimeException         If no server is available.
      */
-    protected function getServer($env = 'dev')
+    protected function getServer()
     {
+        $env = $this->globals['platform'];
+
         if (!in_array($env, array('dev', 'prod'))) {
-            throw new InvalidArgumentException('Invalid $env argument value.');
+            throw new InvalidArgumentException('Invalid platform : '.$env);
         }
 
         $servers = array();

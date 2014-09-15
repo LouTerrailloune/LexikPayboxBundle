@@ -89,7 +89,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('parameters')
                     ->isRequired()
                     ->children()
-                        ->scalarNode('platform')->defaultValue('preprod')->end()
+                        ->scalarNode('platform')->defaultValue('dev')->end()
                         ->arrayNode('currencies')
                             ->defaultValue(array(
                                 '036', // AUD

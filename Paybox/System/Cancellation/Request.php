@@ -65,13 +65,11 @@ class Request extends Paybox implements RequestInterface
     /**
      * Returns the url of an available server.
      *
-     * @param  string $env
-     *
      * @return string
      */
-    public function getUrl($env = 'dev')
+    public function getUrl()
     {
-        $server = $this->getServer($env);
+        $server = $this->getServer();
 
         return sprintf(
             '%s://%s%s',
