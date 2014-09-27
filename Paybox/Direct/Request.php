@@ -89,7 +89,9 @@ class Request extends Paybox implements RequestInterface
         $this->setParameter('DATEQ', date('dmYHis'));
         $this->setParameter('NUMQUESTION', time());
 
-        $this->transport->setEndpoint('https://'.$this->config['servers']['preprod'][0].$this->config['path']);
+        $servers = $this->config['servers'][$this->globals['platform']];
+
+        $this->transport->setEndpoint('https://'.$servers[0].$this->config['path']);
 
         $resultString = $this->transport->call($this);
         parse_str($resultString, $result);
