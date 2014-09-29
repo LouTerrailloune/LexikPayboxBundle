@@ -97,7 +97,6 @@ class Request extends Paybox implements RequestInterface
         parse_str($resultString, $result);
 
         $result['used_endpoint'] = 'https://'.$servers[0].$this->config['path'];
-        $result['used_parameters'] = $this->getParameters();
 
         return $result;
     }

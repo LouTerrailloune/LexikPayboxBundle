@@ -182,12 +182,12 @@ abstract class Paybox
     {
         $env = $this->globals['platform'];
 
-        if (!in_array($env, array('dev', 'prod'))) {
+        if (!in_array($env, array('preprod', 'prod'))) {
             throw new InvalidArgumentException('Invalid platform : '.$env);
         }
 
         $servers = array();
-        if ('dev' === $env) {
+        if ('preprod' === $env) {
             $servers[] = $this->servers['preprod'];
         } else {
             $servers[] = $this->servers['primary'];
